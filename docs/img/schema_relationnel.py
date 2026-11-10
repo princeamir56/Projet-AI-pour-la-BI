@@ -78,7 +78,7 @@ edge('historique', 'mouvement', 'copie sans date\n(même machine,\nmême destina
      dashed=True, color='#9E9E9E', arrow=False)
 
 # --- Titre, légende, notes
-ax.text(9.0, 10.15, 'Schéma relationnel retenu — Dataset ERP Maintenance', ha='center', va='center',
+ax.text(9.0, 10.15, 'Schéma relationnel retenu : Dataset ERP Maintenance', ha='center', va='center',
         fontsize=19, fontweight='bold', color='#1F3A5F')
 ax.text(9.0, 9.72, 'Flèche : clé étrangère  →  clé primaire   ·   cardinalité N–1 sauf mention   ·   intégrité référentielle vérifiée : 100 %',
         ha='center', va='center', fontsize=10.5, color='#55606E')
