@@ -42,7 +42,8 @@ Ce document est la **documentation complète du projet**. Les notebooks contienn
 AiPourBI/
 ├── README.md                     <- cette documentation
 ├── docs/
-│   └── cahierdecharge.pdf        <- cahier des charges du projet
+│   ├── cahierdecharge.pdf        <- cahier des charges du projet
+│   └── img/                      <- figures du README (schéma relationnel)
 ├── data/
 │   ├── fichiers principaux/      <- 13 CSV de l'ERP + 2 documentations (.docx)
 │   └── annexe/                   <- 11 CSV facultatifs
@@ -171,18 +172,7 @@ Toutes les clés primaires ont été vérifiées par le code : elles sont **uniq
 
 ### 1.4 Clés et relations
 
-```
-                      categorie (11)   classe (417)   endroit (68)
-                            ^               ^             ^
-                            |  N-1          |  N-1        |  N-1
-                            +---------  MACHINE (1 649)  -+          <- table pivot
-                                            ^
-       +---------------+--------------------+--------------+------------------+
-       | N-1           | N-1                | N-1          | N-1              | N-1
-  REPARATION <-1-1-  APPEL            ENTRETIEN        PREVENTIF        HISTORIQUE (= MOUVEMENT)
-   |       |                               |                |
- nature  probleme                        action <-----------+
-```
+![Schéma relationnel retenu — Dataset ERP Maintenance](docs/img/schema_relationnel.png)
 
 | Relation | Correspondance | Cardinalité | Couverture de la cible |
 |---|---:|---|---:|
