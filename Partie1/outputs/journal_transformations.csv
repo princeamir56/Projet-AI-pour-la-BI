@@ -1,0 +1,42 @@
+table,opération,détail,justification
+classe,suppression colonnes,description,"95 % manquant, texte libre"
+probleme,renommage,"id_naturepanne->id_probleme, lib_naturepanne->lib_probleme","le contenu représente des problèmes, pas des natures"
+action,feature catégorielle,famille_action = préfixe avant « : »,regroupe 62 libellés longs en familles lisibles
+endroit,harmonisation,nature normalisée -> type_endroit (6 modalités),casse incohérente + modalités rares
+machine,suppression colonnes,"num_tete, heuresactuelles, date_vente, numero_soumission, date_soumission, date_fin_soumission, site_designation, site_id",colonnes 100 % vides
+machine,suppression colonnes,vendu,constante (f partout)
+machine,suppression colonnes,"cout_total, cout_reparation, cout_entretien",cumuls ERP calculés avec des événements futurs (DATA LEAKAGE) + valeurs négatives + 55 % de zéros
+machine,suppression colonnes,"cout, remarque",93 % / 98 % manquants
+machine,suppression colonnes,"type, classe, chaine, id_moteur, id_etat_machine, nom_machine","redondantes : libellé repris via jointure (catégorie, classe, emplacement) ou doublon d'un autre champ"
+machine,suppression colonnes,"date_declaration, declaration, imm_unique, numero, id_machine_methode, id_site_new, id_site_actuel, id_site_chaine, id_site_ancien",identifiants techniques / variantes de site ambiguës ; date_achat retenue comme date de référence
+machine,valeurs manquantes,fabricant/moteur/etat/nom_methode -> « INCONNU »,"absence conservée comme information, sans imputation arbitraire"
+reparation,suppression colonnes,"id_process, origine, dateheure_validation, validation, necessite_validation, id_phase, id_probleme_panne","colonnes vides (>= 99,5 % NA)"
+reparation,suppression colonnes,"daterep, datearretchaine_withouthour, date_fin_mecanicien, duree_attente, nom_machine",redondantes (cf. 1.8)
+reparation,suppression colonnes,"description, designation_process, id_produit, id_sousfamille, id_client","> 89 % manquants, hors périmètre panne"
+reparation,suppression colonnes,"nombre_piece, type",constante / quasi constante (> 99 %)
+reparation,suppression colonnes,"id_chaine, chaine, id_site, id_matricule, id_matricule_validation, id_personnel_mecanicien",redondant avec id_endroit (ligne) / identifiants de personnel hors sujet
+reparation,conversion types,dates ISO 8601 ; t/f -> 1/0,types exploitables
+reparation,valeurs impossibles,duree_arret_min < 0 -> NaN (66 lignes),une durée ne peut être négative
+reparation,valeurs impossibles,duree_rep_min < 0 -> NaN (36 lignes),une durée ne peut être négative
+reparation,valeurs impossibles,duree_attente_min < 0 -> NaN (24 lignes),une durée ne peut être négative
+reparation,imputation déterministe,duree_arret = attente + réparation (1 lignes),identité vérifiée en 1.6
+reparation,drapeaux,"flag_arret_long (> 480 min), flag_date_cloture_incoherente",valeurs extrêmes conservées mais tracées
+reparation,harmonisation,categorie_reparation : casse + modalités rares -> Autre / NA -> Inconnue,9 modalités -> 6
+reparation,pseudo-doublons conservés,"1026 lignes partagent (machine, date_arret) avec une autre",interventions successives sur un même arrêt (natures/fins différentes) : pas une double saisie
+appel,suppression colonnes,"date_fin_rep, reference, id_naturepnne, id_mecanicien, cloture",colonnes vides + cloture constante (t)
+appel,suppression colonnes,"id_matricule, id_endroit",personnel hors sujet / emplacement déjà présent dans réparation
+appel,feature,delai_consultation_min = date_consult - date_appel,réactivité de prise en charge du signalement
+entretien,suppression colonnes,"heuresactuelles, moisactuels, id_personnel_mecanicien_planning, id_mecanicien_planning",vides ou 5 valeurs sur 65 173
+entretien,suppression colonnes,faite,quasi constante (1 seule valeur t) : indicateur non utilisé par l'ERP
+entretien,suppression colonnes,"chaine, id_personnel_mecanicien, id_site",redondant avec id_endroit / personnel hors sujet
+entretien,hors période,7 entretiens après le 2026-03-05 supprimés,"planification, non observée"
+entretien,doublons logiques,"1267 lignes (machine, action, date-heure) supprimées",double saisie
+entretien,valeurs incohérentes,retard |>365 j| -> NaN (127 lignes),date prévue manifestement erronée
+preventif,suppression colonnes,"frequence_autre, dernier_entretien_autre, prochain_entretien_autre, id_mecanicien_affectation, duree, description, faite_affectation",vides / > 95 % manquants
+historique,suppression colonnes,"nom_machine, site_machine, actif",vides / constante
+historique,doublons logiques,537 lectures identiques supprimées,lecture répétée sans changement
+mouvement,table écartée,gm_mouvementmachine non utilisée,"copie de historique, sans date (cf. 1.8)"
+machine,regroupement,fabricant -> fabricant_grp,modalités rares regroupées en AUTRE
+machine,regroupement,categorie_machine -> categorie_grp,modalités rares regroupées en AUTRE
+machine,regroupement,designation_classe -> designation_grp,modalités rares regroupées en AUTRE
+machine,regroupement,nom_methode -> methode_grp,modalités rares regroupées en AUTRE

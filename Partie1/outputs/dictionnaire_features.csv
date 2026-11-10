@@ -1,0 +1,26 @@
+feature,variables sources,méthode de calcul,signification,justification
+age_jours,machine.date_achat,T - date_achat,Âge de la machine,L'usure augmente avec l'âge
+exposition_jours,"date_achat, début des données","T - max(date_achat, début historique)",Durée observable de la machine,Normalise les comptages (une machine récente a moins d'historique)
+nb_rep_total,reparation,count(réparations < T),Volume historique de pannes,Indicateur principal de fiabilité
+nb_arrets_distincts,reparation.date_arret,nunique(date_arret < T),Nombre d'arrêts distincts,Un arrêt peut donner lieu à plusieurs interventions : compte les pannes et non les interventions
+nb_rep_30j / 90j / 180j,reparation.date_arret,count sur fenêtre glissante [T-w ; T[,Activité récente de pannes,Le passé récent prédit mieux le futur proche
+tendance_rep,"nb_rep_30j, nb_rep_180j",(nb_30j + 1) / (nb_180j / 6 + 1),Accélération (>1) ou ralentissement (<1) des pannes,Détecte une dégradation récente
+freq_rep_mensuelle,"nb_rep_total, exposition","nb_rep_total / (exposition / 30,44)",Pannes par mois d'observation,Comparable entre machines d'âges différents
+jours_depuis_derniere_rep,reparation.date_arret,T - max(date_arret) ; censuré à l'exposition,Récence de la dernière panne,Une panne récente signale souvent une récidive
+duree_arret_moy / totale,reparation.duree_arret_min,moyenne / somme,Gravité moyenne et coût cumulé en temps d'arrêt,Distingue les pannes fréquentes mais courtes des pannes rares mais longues
+duree_rep_moy,reparation.duree_rep_min,moyenne,Complexité technique des réparations,Durée effective du mécanicien
+duree_attente_moy,reparation.duree_attente_min,moyenne,Délai moyen avant prise en charge,"Reflète l'organisation de la maintenance (ligne, site)"
+nb_arrets_longs,flag_arret_long,somme des arrêts > 480 min,Nombre d'arrêts majeurs,Pannes graves
+nb_problemes_distincts / nb_natures_distinctes,"id_probleme, id_nature",nunique,Diversité des pannes,Une machine aux problèmes variés est globalement dégradée
+taux_rep_avec_changement,reparation.changement,moyenne du booléen,Part des réparations avec changement (de pièce ou de machine),Indique des réparations lourdes
+nb_ent_total / nb_ent_90j,entretien,count < T / sur 90 j,Intensité de la maintenance préventive,Le préventif est censé réduire les pannes
+jours_depuis_dernier_ent,entretien.date_debut,T - max(date_debut) ; censuré,Récence du dernier entretien,Un entretien ancien augmente le risque de panne
+retard_ent_moy_jours,"date_debut, date_prevue",moyenne(date_debut - date_prevue),Respect du planning préventif,Retards répétés = maintenance négligée
+nb_actions_ent_distinctes,entretien.id_action,nunique,Diversité des actions préventives,Profil de maintenance
+duree_ent_totale,entretien.duree,somme,Effort préventif cumulé,Profil de maintenance (U2)
+ratio_prev_corr,"nb_ent_total, nb_rep_total",nb_ent / (nb_rep + 1),Équilibre préventif / correctif,Explicitement demandé pour U2 / U3
+nb_changements_emplacement,historique,nombre de changements d'id_endroit successifs,Mobilité de la machine,Les déplacements fréquents peuvent causer des déréglages
+type_endroit_T,historique + endroit,nature de l'emplacement à la dernière lecture < T,"Machine en production, au parc, etc.",Une machine au parc ne tombe pas en panne en production
+jamais_reparee / jamais_entretenue,"nb_rep_total, nb_ent_total",indicateur == 0,Absence d'historique,Distingue « 0 » de « inconnu » pour le modèle
+"categorie_grp, fabricant_grp, designation_grp, methode_grp, moteur",machine + référentiels,modalités rares regroupées en AUTRE,Caractéristiques techniques,Le comportement varie selon le type et la marque
+"etat_actuel, freq_prev_min_jours, nb_actions_prev_planifiees","machine.etat, preventif",valeur à l'extraction (T ≥ extraction uniquement),Configuration actuelle,Utile en non supervisé ; exclu pour un T passé (fuite)

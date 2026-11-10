@@ -1,0 +1,69 @@
+id_endroit,nom_endroit,id_chaine,id_site,depannage,id_matricule,nature,preventifexclu
+15,Coupe ENFAVET INTER,,1,f,,Coupe,f
+1433934,Parc machine INTER,,1,f,,Parc,t
+874413,Parc dépannage inter ,,1,t,,Parc,t
+874414,Parc dépannage PLUS,,4,t,,Parc,t
+1062256,Parc machine Z-Silva,,2,f,,Parc,t
+16,Magasin ENFAVET INTER,,1,f,,Parc,f
+11,Atelier Z.SILVA INTER,,2,f,,Parc,t
+12,Atelier ENFAVET INTER,,1,f,,Parc,t
+13,Atelier ENFAVET PLUS,,4,f,,Parc,t
+14,Atelier ENFAVET,,5,f,,Parc,t
+874415,Parc dépannage ZSILVA,,2,t,,Parc,t
+879470,Inconnu,,1,f,,Parc,t
+1030295,Parc Machine Plus,,4,f,,Parc,t
+1033406,Parc DEV,,1,f,,Parc,t
+796688,ENFAVET,,5,f,,Parc,t
+2145305,LOCAL GROUPE ELECTROGENE,,1,f,,,f
+874418,FORMATION INTER,,1,f,,Parc,f
+1038391,Chaine formation plus,,4,f,,Parc,f
+783324,E10,35,4,f,,Production,f
+783325,E1,25,4,f,316,Production,f
+783326,E2,26,4,f,316,Production,f
+783327,E3,28,4,f,318,Production,f
+783328,E4,29,4,f,318,Production,f
+783329,E5,30,4,f,315,Production,f
+783330,E6,31,4,f,320,Production,f
+783331,E7,32,4,f,317,Production,f
+783332,E8,33,4,f,319,Production,f
+783333,E9,34,4,f,331,Production,f
+783334,E11,37,4,f,331,Production,f
+783335,E12,40,4,f,331,Production,f
+799314,MF1,8,1,f,,Production,f
+799315,MF2,7,1,f,,Production,f
+799316,MF3,5,1,f,,Production,f
+799317,MF5,14,1,f,,Production,f
+799318,MF6,16,1,f,,Production,f
+799319,MF4,11,1,f,,Production,f
+858434,ZS4,19,2,f,,Production,f
+858435,ZS2,17,2,f,,Production,f
+858436,ZS3,18,2,f,,Production,f
+858438,ZS5,20,2,f,,Production,f
+858439,ZS7,22,2,f,,Production,f
+858440,ZS1,10,2,f,,Production,f
+858442,ZS6,21,2,f,,Production,f
+858443,ZS8,23,2,f,,Production,f
+858444,ZS9,24,2,f,,Production,f
+858445,ZS10,36,2,f,,Production,f
+858446,ZS11,39,2,f,,Production,f
+858449,ZS12,41,2,f,,Production,f
+862838,MF7,15,1,f,,Production,f
+927463,E13,42,4,f,,Production,f
+1101795,ZS13,,2,f,,Parc,f
+1101796,Chaine formation Z-Silva,,2,f,,Parc,f
+1699501,Magasin ZSILVA,,2,f,,Parc,f
+874417,DEV,,1,f,,Developpement,f
+1738771,Bureau Vignette,,2,f,,BUREAU VIGNETTE,f
+1801644,ME1,48,5,f,,PRODUCTION,f
+1801645,ME3,56,5,f,,PRODUCTION,f
+1801646,ME2,49,5,f,,PRODUCTION,f
+1891737,MF8,50,1,f,,PRODUCTION,f
+1932084,FORMATION PLUS,,4,f,,Hors Production ,f
+2081512,ZS14,,2,f,,PRODUCTION ,f
+1703860,Parc Feraille,,1,f,,Dépôt KHALED,t
+1801936,PARC MACHINE,,5,f,,2ème ETAGE,t
+1896358,Dépot khaled,,,f,,Hors Production ,t
+1909876,Préparation INTER,,1,f,,Hors Production ,t
+1923447,PARC MACHINE ENFAVET ,,5,f,,Hors Production,t
+1725273,REFECTOIRE,,1,f,,REFECTOIRE,t
+1909874,Préparation PLUS,,4,f,,Hors Production ,t

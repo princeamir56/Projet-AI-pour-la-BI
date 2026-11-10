@@ -1,0 +1,6 @@
+id_etat,nom_etat,preventifexclu,excluetat
+1693906,Non Conforme,t,f
+1703190,Hors Service,t,f
+791757,En panne,t,f
+791758,En Bon Etat,f,f
+1693905,Conforme,f,f

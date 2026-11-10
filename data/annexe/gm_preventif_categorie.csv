@@ -1,0 +1,10 @@
+id,dernier_entretien_jour,prochain_entretien_jour,frequence_jour,frequence_autre,dernier_entretien_autre,prochain_entretien_autre,faite,description,avant_dernier,id_action,id_categorie
+961554,,,30,,,,t,,,2,35
+961555,,,90,,,,t,,,1,35
+961556,,,365,,,,t,,,5,35
+965049,,,365,,,,t,,,5,35
+965050,,,30,,,,t,,,2,35
+965051,,,90,,,,t,,,1,35
+965553,,,365,,,,t,,,5,35
+965554,,,30,,,,t,,,2,35
+965555,,,90,,,,t,,,1,35

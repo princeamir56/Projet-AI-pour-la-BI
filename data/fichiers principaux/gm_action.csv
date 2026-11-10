@@ -1,0 +1,63 @@
+id_action,nom_action,consigne,observations,actif
+1,Controle tension courroie,,,t
+2,Verification niveau d'huile + Controle fuite d'huile,,,t
+3,Vidange,,,t
+4,Nettoyage Machine,,,t
+6,Verification des equipements de protection,,,t
+7,"Verification support bobine fil , blocs tension, batis",,,t
+8,Controle Resistance,,,t
+9,Controle sonde,,,t
+11,Changement teflon,,,t
+892832,Contrôle Pression,,,t
+892833,Contrôle le serrage des boulons de fixation,,,t
+892912,Vérification de fuite d'air,,,t
+892914,Vérifier l'état du matrice,,,t
+895439,Vérification état d'aiguille,,,t
+947557,Vérification de la fixation de la tête et décalage du tracer,,,t
+947558,Vérification de câble de connexion ,,,t
+948024,Lubrification,,,t
+948025,Graissage,,,t
+948026,Nettoyage filtre,,,t
+948124,Changement lame,,,t
+948125,Vérification état courroie,,,t
+948126,Changement roulement du support affuteur,,,t
+948846,"Contrôle des différents niveaux : huiles, eau batterie",,,t
+948847,Contrôle des éléments de sécurité et de signalisation: Detecteur fin course haut et bas,,,t
+948920,Contrôle des commandes,,,t
+1339896,"T.M : Vérification de fonctionnement du système hydraulique, du timon et des roues",,,t
+1340047,"T.E: Vérification de systèmes de freinage + Vérification de fuite d'huile, de chargement de la batterie et vérification des connexions",,,t
+1341506,ECH.M.M : Vérification et contrôle du système de freinage et du système de fixation de l'échafaudage,,,t
+5,M.C: Changement de filtre+Vidange,,,t
+978592,M.C: Contrôle tension de courroie + pédale d'accélération ,,,t
+1341598,ECH.M.M : Vérification et contrôle du système de freinage et du système de fixation de plateforme + vérification et contrôle de raccrochement de ceinture ,,,t
+977115,M.C: Contrôler l'état de: garde aiguille + boite canette + pieds + téflon + lames + bloc tension fils + boucleur/crochet +systeme coupe fils + synchronisation aiguille/crochet + guide de remplissage+Verification niveau d'huile + Controle fuite d'huile,,,t
+947556,TR: vérification taux du tonner et tuyau d'ancre + Vérification de la fixation de la tête et décalage + Vérification de câble de connexion ,,,t
+947559,TR: Changement du stylo,,,t
+978102,P.T: Contrôle pression (avec papier) + compteur + température + serrage des boulons de fixation,,,t
+892834,P.T: Nettoyage du plateau,,,t
+892913,P.P: Vérifier l'alignement du trou avec la matrice + Vérification de fuite d'aire + Vérifier l'état du matrice,,,t
+978581,P.P: Vérifier l'alignement du trou avec la  matrice  + état de la matrice + fuite d'air,,,t
+1018731,D.T : Vérification état courroie + Graissage,,,t
+1018743,C.M : Lubrification/Graissage + Nettoyage filtre,,,t
+1018744,C.M : Vérification état courroie,,,t
+1018745,C.M : Changement lame,,,t
+1018786,V: Vérification d'état de la courroie + Graissage,,,t
+1018790,C.A : Changement Lame + Fixation du vis + Nettoyage filtre + Lubrification/Graissage,,,t
+1018794,C.A : Vérification d'état de courroie + Changement de roulement du support d'affuteur,,,t
+948127,C.A : Changement brosse,,,t
+1083892,TH: Vérification de l'état du tapis roulant + vérification de l'état de roulement,,,t
+1128124,"FG: Contrôle de niveaux d'huile et d'eau de batterie+contrôle des commandes, des éléments de sécurité et de signalisation+graissage et lubrification de chaines de levage",,,t
+1128257,SR: Nettoyage et graissage  ,,,t
+1128258,SR: Changement lame,,,t
+1128727,"MG: Nettoyage + Vérification état de lame, état de l'affuteur et état de guide ",,,t
+1128777,"MG: Nettoyage + Vérification état de lame, état de l'affuteur et état de guide + Lubrification et Graissage",,,t
+1128778,MG: Changement lame + changement affuteur,,,t
+1417343,"CH: Nettoyage + vérification de niveau de l'eau, de la résistance et de l'état de l'électrovanne + vérification des interrupteurs   ",,,t
+1418224,surpresseur : Nettoyage et contrôle de l'installation + faire des essais sur les RIAs,,,t
+1515759,Vidange,,,t
+1686344,Etalonnage,,,t
+1715644,Découpoir : Nettoyage et vérification de l'état des lames ,,,t
+1715645,Découpoir : Changement lames,,,t
+1725298,F.d'eau : Changement de cartouche filtrante ,,,t
+1725312,F d'eau : Nettoyage des grilles d'aération ,,,t
+1725313,F d'eau : nettoyage intérieur de la porte filtre,,,t

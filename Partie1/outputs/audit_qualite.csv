@@ -1,0 +1,38 @@
+table,problème,nb,%,décision
+machine,"colonnes vides (>=99,5 % NA) : num_tete, heuresactuelles, date_vente, numero_soumission, date_soumission, date_fin_soumission, site_designation, site_id",8,19.05,supprimer : aucune information
+reparation,"colonnes vides (>=99,5 % NA) : id_process, origine, dateheure_validation, validation, necessite_validation, id_phase, id_probleme_panne",7,16.67,supprimer : aucune information
+appel,"colonnes vides (>=99,5 % NA) : date_fin_rep, reference, id_naturepnne, id_mecanicien",4,28.57,supprimer : aucune information
+entretien,"colonnes vides (>=99,5 % NA) : heuresactuelles, moisactuels, id_personnel_mecanicien_planning, id_mecanicien_planning",4,22.22,supprimer : aucune information
+preventif,"colonnes vides (>=99,5 % NA) : frequence_autre, dernier_entretien_autre, prochain_entretien_autre, description, id_mecanicien_affectation, duree",6,37.5,supprimer : aucune information
+historique,"colonnes vides (>=99,5 % NA) : nom_machine, site_machine",2,28.57,supprimer : aucune information
+machine,"cout (93 % NA), remarque (98 % NA)",2,4.76,supprimer : trop peu renseignées pour être fiables
+reparation,id_produit / id_sousfamille / id_client / designation_process (~89 % NA),4,9.52,"supprimer : champs d'un autre module (production), non liés à la panne"
+reparation,doublons exacts,0,0.0,—
+reparation,"lignes partageant (machine, date d'arrêt) avec une autre",1026,3.13,CONSERVER : natures / fins différentes -> plusieurs interventions sur un même arrêt (drapeau)
+entretien,"doublons logiques (machine, action, même date-heure)",1267,1.94,supprimer : double saisie
+historique,"doublons logiques (machine, date, emplacement)",537,3.53,supprimer : lecture répétée
+reparation,dureearret négative,66,0.2,mettre à NaN : durée impossible
+reparation,dureerep négative,36,0.11,mettre à NaN : durée impossible
+reparation,dureeattente négative,24,0.07,mettre à NaN : durée impossible
+reparation,dureearret manquante,178,0.54,recalculer = attente + réparation si disponibles
+reparation,dureearret > 480 min (> 1 poste de travail),10,0.03,conserver + drapeau : arrêts longs plausibles (pièce à commander)
+reparation,|attente + réparation - arrêt| > 2 min,4907,14.97,conserver : écarts dus à des saisies a posteriori ; dureearret = mesure de référence
+reparation,datefin < datearretchaine (fin avant le début),30,0.09,drapeau datefin_incoherente
+reparation,datefin > datearretchaine + 1 jour (clôture tardive),1165,3.55,"drapeau : datefin = date de clôture administrative, pas fin réelle"
+reparation,réparation datée avant l'achat de la machine,1,0.0,conserver (date d'achat probablement erronée)
+reparation,réparation non clôturée (cloture = f),4126,12.59,conserver + variable binaire (les durées existent)
+entretien,date_debut postérieure à l'extraction (planification future),7,0.01,supprimer : non observé à la date d'extraction
+entretien,entretien daté avant l'achat de la machine,84,0.13,"conserver : l'entretien a eu lieu, date d'achat douteuse"
+entretien,|date_debut - date_prevue| > 365 j,133,0.2,retard mis à NaN : planification incohérente
+machine,date_declaration < date_achat,8,0.49,sans impact : date_declaration non retenue
+machine,coûts cumulés négatifs (cout_total / cout_reparation),205,12.43,supprimer les coûts (incohérents + fuite de données)
+reparation,categorie_reparation : casse incohérente (« PRODUCTION » vs « Production ») + modalités rares,331,1.01,harmoniser la casse + regrouper les modalités rares en « Autre »
+machine,fabricant : variantes de casse / espaces,11,8.8,"normaliser (majuscules, espaces)"
+machine,nom_machine : variantes de casse / espaces,16,12.4,"normaliser (majuscules, espaces)"
+endroit,nature : « Production » / « PRODUCTION » / « Hors Production  »,3,25.0,normaliser
+probleme,libellé « Problème au niveau de purgeur d'air » répété sous 3 identifiants,3,9.38,"conserver les ids, harmoniser le libellé"
+toutes,clés étrangères orphelines,0,0.0,aucune action : intégrité 100 %
+appel,appel sans réparation associée,425,1.31,conserver dans la table appel ; hors du dataset réparation
+machine,machines sans aucune réparation,330,20.01,conserver : machines « fiables » ou inactives (nb_rep = 0 est une information)
+machine,moteur manquant,384,23.29,modalité « INCONNU » : l'absence peut être informative
+reparation,nature / problème manquants,182,0.56,modalité « INCONNU »

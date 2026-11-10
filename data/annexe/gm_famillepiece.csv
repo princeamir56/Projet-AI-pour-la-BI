@@ -1,0 +1,10 @@
+id_famille,code_famille,nom_famille,id_nature
+1,1,Machine à Coudre,1
+2,2,Machine de Coupe,1
+6,3,Pneumatique,1
+10,5,SIMPLE REMPLI,2
+11,6,DOUBLE REMPLI,2
+14,4,AIGUILLE,1
+889309,7,SPAGHETTI,2
+4,8,MATRICE,1
+1670563,9,Imprimante Vignette,1
